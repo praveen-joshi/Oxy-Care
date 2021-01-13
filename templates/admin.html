@@ -1,0 +1,94 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body>
+<p>Welcome login</p>
+<form action="/uservice" method="post">
+<input type="text" name="em" placeholder="Enter Email">
+<input type="password" name="pd" placeholder="password">
+<input type="submit" value="submit">
+</body>
+</html>
+-->
+<html>
+<head>
+<link href="{{url_for('static',filename='style2.css')}}" rel="stylesheet" type="text/css" media="all" />
+<!--<link href="style2.css" rel="stylesheet" type="text/css" media="all" />-->
+<link href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+	<!-- Fontawesome CSS -->
+	<link href="{{url_for('static',filename='all.css')}}" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="{{url_for('static',filename='style.css')}}" rel="stylesheet">
+</head>
+<body style="background-color:#00bfff;">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light top-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+            <img src="{{url_for('static',filename='images/logo.png')}}" alt="logo" />
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fas fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link " href="/">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="about.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="services.html">Services</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/regist">Register</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link " href="/login">login</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link active" href="#">Admin</a>
+                  </li>
+                  
+                  <!--<li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Pages
+                     </a>
+                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                        <a class="dropdown-item" href="faq.html">FAQ</a>
+                        <a class="dropdown-item" href="404.html">404</a>
+                        <a class="dropdown-item" href="pricing.html">Pricing Table</a>
+                     </div>
+                  </li>-->
+               </ul>
+            </div>
+        </div>
+    </nav>
+
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1><b>ADMIN Login</b></h1>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<form action="/adservice" method="post">
+				<input type="text" class="login-field" value="" placeholder="Enter Username" name="us" id="login-name" required>
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="password" name="pd" id="login-pass" required>
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+                <input class="btn btn-primary btn-large btn-block" type="submit" value="submit">
+                </form>
+
+				<!--<a class="btn btn-primary btn-large btn-block" href="/uservice">login</a>-->
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<html>
+<head>
+<link href="{{url_for('static',filename='style2.css')}}" rel="stylesheet" type="text/css" media="all" />
+<!--<link href="style2.css" rel="stylesheet" type="text/css" media="all" />-->
+<link href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+	<!-- Fontawesome CSS -->
+	<link href="{{url_for('static',filename='all.css')}}" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="{{url_for('static',filename='style.css')}}" rel="stylesheet">
+<style>
+.dropbtn {
+  background-color: #3498DB;
+  background-color: green;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+
+
+</head>
+<body style="background-color:#00bfff;">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-light top-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+            <img src="{{url_for('static',filename='images/logo.png')}}" alt="logo" />
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fas fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                 <li class="nav-item">
+                     <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">{{em}}</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="/logout">Logout</a>
+  </div>
+</div>
+
+                  </li> 
+            
+               </ul>
+            </div>
+        </div>
+    </nav>
+
+	<div class="login" style="width: 35%;">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Enter Below Soil Data</h1>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<form action="#" method="post">
+
+                    
+                        <label for="State">Select State:</label>
+                        <select class="form-control" id="State" name="State">
+                        </select>
+
+                        <label for="District">Select District:</label>
+                        <select class="form-control" id="District" name="District">
+                        </select>
+                    
+                  
+                      <script>
+
+                        var myState=['Andaman and Nicobar', 'Andhra Pradesh', 'Assam', 'Chattisgarh', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Nagaland', 'Odisha', 'Pondicherry', 'Punjab', 'Rajasthan', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttrakhand', 'West Bengal']
+                        var x = document.getElementById("State");
+                        for(var i=0;i<myState.length;++i)
+                        {
+                          var option = document.createElement("option");
+                          option.text = myState[i];
+                          x.add(option);
+                        }
+                  
+                        
+                        var myDist=['South Andaman', 'Chittor', 'Kurnool', 'West Godavari', 'Cachar', 'Darrang', 'Dhubri', 'Jorhat', 'Kamrup', 'Sonitpur', 'Bastar', 'Kanker', 'Surajpur', 'North Goa', 'Amreli', 'Anand', 'Bharuch', 'Kachchh', 'Kheda', 'Panchmahals', 'Surat', 'Vadodara(Baroda)', 'Valsad', 'Ambala', 'Faridabad', 'Gurgaon', 'Kurukshetra', 'Mewat', 'Panipat', 'Kangra', 'Kullu', 'Badgam', 'Bangalore', 'Kolar', 'Tumkur', 'Alappuzha', 'Ernakulam', 'Kannur', 'Kasargod', 'Kollam', 'Kottayam', 'Malappuram', 'Thirssur', 'Thiruvananthapuram', 'Anupur', 'Badwani', 'Dhar', 'Dindori', 'Jhabua', 'Khandwa', 'Narsinghpur', 'Sheopur', 'Ahmednagar', 'Buldhana', 'Jalgaon', 'Kolhapur', 'Nagpur', 'Nanded', 'Nashik', 'Pune', 'Satara', 'Sholapur', 'Bishnupur', 'Chandel', 'Imphal East', 'Imphal West', 'Thoubal', 'East Khasi Hills', 'Mokokchung', 'Angul', 'Balasore', 'Bargarh', 'Dhenkanal', 'Gajapati', 'Ganjam', 'Jharsuguda', 'Mayurbhanja', 'Nowarangpur', 'Sundergarh', 'Karaikal', 'Amritsar', 'Barnala', 'Bhatinda', 'Gurdaspur', 'Hoshiarpur', 'Jalandhar', 'Ludhiana', 'Mansa', 'Muktsar', 'Patiala', 'Ropar (Rupnagar)', 'Tarntaran', 'Baran', 'Barmer', 'Bikaner', 'Chittorgarh', 'Jalore', 'Jhalawar', 'Kota', 'Sikar', 'Tonk', 'Coimbatore', 'Cuddalore', 'Dharmapuri', 'Dindigul', 'Erode', 'Kancheepuram', 'Krishnagiri', 'Madurai', 'Nagercoil (Kannyiakumari)', 'Namakkal', 'Ramanathapuram', 'Salem', 'Sivaganga', 'Thanjavur', 'Thiruvannamalai', 'Vellore', 'Villupuram', 'Virudhunagar', 'Hyderabad', 'Karimnagar', 'Khammam', 'Nalgonda', 'Nizamabad', 'Ranga Reddy', 'North Tripura', 'Sepahijala', 'South District', 'Agra', 'Aligarh', 'Allahabad', 'Baghpat', 'Bahraich', 'Ballia', 'Bhadohi(Sant Ravi Nagar)', 'Bulandshahar', 'Chitrakut', 'Etah', 'Etawah', 'Farukhabad', 'Fatehpur', 'Gautam Budh Nagar', 'Ghaziabad', 'Jalaun (Orai)', 'Jhansi', 'Kannuj', 'Kanpur', 'Khiri (Lakhimpur)', 'Lakhimpur', 'Mahoba', 'Mau(Maunathbhanjan)', 'Mirzapur', 'Muradabad', 'Muzaffarnagar', 'Raebarelli', 'Rampur', 'Saharanpur', 'Shahjahanpur', 'Sitapur', 'Sonbhadra', 'Dehradoon', 'UdhamSinghNagar', 'Bankura', 'Burdwan', 'Hooghly', 'Jalpaiguri', 'Malda', 'Medinipur(W)', 'Murshidabad', 'Nadia', 'North 24 Parganas', 'Puruliya', 'Sounth 24 Parganas', 'Uttar Dinajpur']
+                        var x = document.getElementById("District");
+                        for(var i=0;i<myDist.length;++i)
+                        {
+                          var option = document.createElement("option");
+                          option.text = myDist[i];
+                          x.add(option);
+                        }
+                        
+                  
+                    </script>
+
+
+                
+
+                    <div class="form-group">
+                        <label for="Temperature">Enter pyrolysis Temperature </label>
+                        <input type="text" class="form-control" id="Temperature" name="Temperature" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ph">Enter Soil ph</label>
+                        <input type="text" class="form-control" id="ph" name="ph">
+                    </div>
+                    <div class="form-group">
+                        <label for="phosphorus">soil extractable phosphorus in mg/L</label>
+                        <input type="text" class="form-control" id="phosphorus" name="phosphorus" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="EC">soil EC in microSiemens </label>
+                        <input type="text" class="form-control" id="EC" name="EC" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="shootdw">Enter Magnesium/gram </label>
+                        <input type="text" class="form-control" id="shootdw" name="shootdw" required>
+                    </div>
+
+                    <span>Select Soil type</span>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Soil_type" id="exampleRadios1" value="1" checked>
+                        <label class="form-check-label" for="exampleRadios1">
+                            Coxville
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Soil_type" id="exampleRadios2" value="2">
+                        <label class="form-check-label" for="exampleRadios2">
+                            Norfolk
+                        </label>
+                      </div>
+
+        
+                      <input class="btn btn-primary btn-large btn-block mt-3" type="submit" value="Predict">
+                      
+                </form>
+			
+			</div>
+		</div>
+	</div>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<script src="{{url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+
+<script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+</body>
+</html>
